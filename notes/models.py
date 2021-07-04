@@ -7,9 +7,10 @@ LABEL_CHOICES = (("P", "primary"),
 
 
 class Note(models.Model):
-    title = models.CharField(max_length=100)
+    to_do_list = models.CharField(max_length=100)
     due_date = models.DateTimeField()
     label = models.CharField(choices=LABEL_CHOICES, default='P', max_length=2)
+    finished = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return self.title
+        return self.to_do_list

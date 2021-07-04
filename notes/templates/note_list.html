@@ -1,0 +1,56 @@
+{% extends "base.html" %}
+ {% block content %}
+     <style>
+     .icons{
+         position : absolute;
+         right : 5%;
+
+     }
+    </style>
+  <div class="text-center mt-5">
+     <h2>To Do List </h2>
+  </div>
+  <hr />
+  <div class = "row">
+    {% for note in notes_todo %}
+    <div class="card">
+        <div class="card-body">
+            <h4>
+                {{ note.to_do_list }} 
+                <span class="badge bg-{{note.get_label_display}}">
+                    {{note.due_date}}
+                </span>
+                <span class="icons">
+                    <a href="{% url 'finish-item' note.id %}" style="color:black"> <i class="fas fa-check-circle"></i></a>
+                    <a href="" style = "color:red"> <i class="fas fa-trash-alt"></i></a>
+               </span>
+            </h4>
+     </div>
+    </div>
+    {% endfor %}
+  </div>
+
+    <div class="text-center mt-5">
+     <h2>Finished List </h2>
+  </div>
+  <hr />
+  <div class = "row">
+    {% for note in notes_finished %}
+    <div class="card">
+        <div class="card-body">
+            <h4>
+                {{ note.to_do_list }} 
+                <span class="badge bg-{{note.get_label_display}}">
+                    {{note.due_date}}
+                </span>
+                <span class="icons">
+                    <a href="" style="color:black"> <i class="fas fa-check-circle"></i></a>
+                    <a href="" style = "color:red"> <i class="fas fa-trash-alt"></i></a>
+               </span>
+            </h4>
+     </div>
+    </div>
+    {% endfor %}
+    
+  </div>
+ {% endblock content %}
