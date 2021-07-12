@@ -3,7 +3,6 @@
  general-purpose  Todo List app manage your daily activites seamlessly 
 
  ## Technologies
-___
  * django 3.2
  * bootstrap 5
 
